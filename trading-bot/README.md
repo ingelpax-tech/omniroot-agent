@@ -28,6 +28,16 @@ Bot de spot para **OKX Demo Trading**: opera con dinero ficticio. Usa un cruce d
    ```
 4. Tests (sin conexión): `pytest -q`
 
+### En Android (Termux)
+
+`pip install -r requirements.txt` falla en Termux porque ccxt intenta compilar extras (`coincurve`, `orjson`, `uvloop`...) que el bot no usa. Instálalo así:
+
+```bash
+pkg install -y python python-cryptography
+pip install --no-deps ccxt
+pip install requests certifi typing_extensions python-dotenv pytest
+```
+
 ## Configuración (`.env`)
 
 | Variable | Por defecto | Descripción |
